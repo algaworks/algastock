@@ -6,3 +6,8 @@
   box-sizing: border-box;
   font-family: Lato, sans-serif;
 }
+
+.Container {
+  margin: 10px auto;
+  max-width: 480px;
+}
