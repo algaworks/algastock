@@ -84,7 +84,7 @@ const ProductForm: React.FC<ProductFormProps> = (props) => {
     setForm(initialFormState)
   }
 
-  return <Form onSubmit={handleFormSubmit}>
+  return <Form title="Product form" onSubmit={handleFormSubmit}>
     <Input
       onChange={handleInputChange}
       value={form.name}
@@ -115,7 +115,9 @@ const ProductForm: React.FC<ProductFormProps> = (props) => {
       required
     />
     <Button>
-      Submit
+      {
+        form.id ? 'Update' : 'Submit'
+      }
     </Button>
   </Form>
 }
