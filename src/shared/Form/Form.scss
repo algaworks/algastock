@@ -1,0 +1,22 @@
+.AppForm {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(#000, .1);
+  padding: 20px;
+
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .Title {
+    font-size: .85em;
+    background-color: #09f;
+    color: #fff;
+    margin: -20px;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+}
