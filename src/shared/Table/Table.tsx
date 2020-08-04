@@ -53,7 +53,7 @@ const Table: React.FC<TableProps> = (props) => {
                 .map((item, i) =>
                   item !== '$original'
                     ? <td
-                        key={row.$original.id + i}
+                        key={row.$original._id + i}
                         className={indexedHeaders[item].right ? 'right' : ''}
                       >
                         { row[item] }
@@ -68,7 +68,7 @@ const Table: React.FC<TableProps> = (props) => {
                   {
                     props.onEdit &&
                       <Button
-                        onClick={() => props.onEdit && props.onEdit(row)}
+                        onClick={() => props.onEdit && props.onEdit(row.$original)}
                       >
                         Edit
                       </Button>
@@ -76,7 +76,7 @@ const Table: React.FC<TableProps> = (props) => {
                   {
                     props.onDetail &&
                       <Button
-                        onClick={() => props.onDetail && props.onDetail(row)}
+                        onClick={() => props.onDetail && props.onDetail(row.$original)}
                       >
                         Detail
                       </Button>
@@ -84,7 +84,7 @@ const Table: React.FC<TableProps> = (props) => {
                   {
                     props.onDelete &&
                       <Button
-                        onClick={() => props.onDelete && props.onDelete(row)}
+                        onClick={() => props.onDelete && props.onDelete(row.$original)}
                       >
                         Delete
                       </Button>
