@@ -6,19 +6,29 @@ import {
 } from 'redux'
 import thunk, { ThunkAction } from 'redux-thunk'
 import Products from './Products/Products.reducer'
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 const reducers = combineReducers({
   products: Products
 })
 
+const persistedReducer = persistReducer({
+  key: 'algastock',
+  storage,
+  blacklist: ['products']
+}, reducers)
+
 const store = createStore(
-  reducers,
+  persistedReducer,
   compose(
     applyMiddleware(thunk),
     // @ts-ignore
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 )
+
+const persistor = persistStore(store)
 
 export interface Action<T = any> {
   type: string
@@ -32,5 +42,5 @@ export type Thunk<T = any> =
 
 export type ThunkDispatch = (thunk: Thunk) => Promise<Thunk>
 
-export default store
+export { store, persistor }
 
