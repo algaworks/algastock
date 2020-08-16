@@ -28,6 +28,7 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
   
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line
   }, [])
   
   async function fetchData() {
