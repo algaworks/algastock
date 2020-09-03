@@ -27,6 +27,8 @@ const enhancers = [
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ].filter(e => e)
 
+console.log(enhancers)
+
 const store = createStore(
   persistedReducer,
   compose(...enhancers)
