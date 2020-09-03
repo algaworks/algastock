@@ -21,15 +21,13 @@ const persistedReducer = persistReducer({
   blacklist: ['products']
 }, reducers)
 
-const enhancers = [
-  applyMiddleware(thunk),
-  // @ts-ignore
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-].filter(e => e)
-
 const store = createStore(
   persistedReducer,
-  compose(...enhancers)
+  compose(
+    applyMiddleware(thunk),
+    // @ts-ignore
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 )
 
 const persistor = persistStore(store)
