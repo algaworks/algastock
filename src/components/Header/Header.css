@@ -1,8 +1,9 @@
 header.AppHeader {
   background-color: #09f;
   color: #fff;
-  height: 50px;
+  height: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
@@ -11,4 +12,9 @@ header.AppHeader {
 
 header.AppHeader h1 {
   font-size: 1.2em;
+  margin-bottom: 7px;
+}
+
+header.AppHeader span {
+  cursor: pointer;
 }
