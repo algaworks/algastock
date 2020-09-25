@@ -5,4 +5,13 @@ button.AppButton {
   box-shadow: 0 3px 6px;
   border: none;
   padding: 7px 10px;
+
+  transition: .25s ease;
+  cursor: pointer;
+}
+
+button.AppButton:hover {
+  background-color: #07f;
+  box-shadow: 0 3px 6px rgba(0,0,0,.2);
+  transform: translateY(-3px);
 }

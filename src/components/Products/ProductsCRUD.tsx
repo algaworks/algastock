@@ -8,7 +8,6 @@ import * as ProductsAction from '../../redux/Products/Products.actions'
 import { RootState, ThunkDispatch } from '../../redux'
 
 const headers: TableHeader[] = [
-  { key: 'id', value: '#' },
   { key: 'name', value: 'Product' },
   { key: 'price', value: 'Price', right: true },
   { key: 'stock', value: 'Available Stock', right: true }

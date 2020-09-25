@@ -2,17 +2,18 @@ table.AppTable {
   width: 100%;
   box-shadow: 0 3px 6px rgba(#000, .1);
   border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
 
   thead {
     background-color: #09f;
+    
     tr th {
-      color: rgba(#fff, .8);
+      color: #fff;
       text-align: left;
       padding: 7px 10px;
       font-size: .8em;
       font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: .75px;
 
       &.right {
         text-align: right;
