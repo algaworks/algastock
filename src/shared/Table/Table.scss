@@ -43,3 +43,48 @@ table.AppTable {
     }
   }
 }
+
+.Table__pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 7px;
+
+  a {
+    width: 25px;
+    height: 25px;
+
+    background-color: #fff;
+    border: 1px solid #ccc;
+
+    color: #09f;
+
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    font-size: 12px;
+
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    transition: .25s ease;
+    &:hover {
+      background-color: #09f;
+      color: #fff;
+      border-color: #09f;
+      box-shadow: 0 3px 6px rgba(#000, .2);
+      transform: translateY(-3px);
+    }
+
+    &.selected {
+      color: #222;
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
