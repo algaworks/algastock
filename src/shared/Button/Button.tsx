@@ -5,6 +5,7 @@ declare interface ButtonProps {
   content?: string
   onClick?: () => void
   appendIcon: JSX.Element
+  children: string
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
