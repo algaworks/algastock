@@ -1,7 +1,7 @@
 import React from 'react'
 import './Container.css'
 
-const Container: React.FC = (props) => {
+const Container: React.FC<{ children: JSX.Element}> = (props) => {
   return <div className="AppContainer">
     { props.children }
   </div>
