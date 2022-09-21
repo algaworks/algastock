@@ -1,5 +1,5 @@
 import {
-  createStore,
+  legacy_createStore as createStore,
   combineReducers,
   compose,
   applyMiddleware

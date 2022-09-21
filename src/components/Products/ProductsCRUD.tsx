@@ -46,7 +46,9 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
       dispatch(insertNewProduct(product))
       fetchData()
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
@@ -56,7 +58,9 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
       setUpdatingProduct(undefined)
       fetchData()
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
@@ -66,7 +70,9 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
       fetchData()
       Swal.fire('Uhul!', 'Product successfully deleted', 'success')
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
