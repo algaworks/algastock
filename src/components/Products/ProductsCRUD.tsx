@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import Table, { TableHeader } from '../../shared/Table'
 import { Product } from '../../shared/Table/Table.mockdata'
@@ -25,7 +26,6 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
 
   async function fetchData() {
     try {
-       // @ts-ignore
       await dispatch(ProductsAction.getProducts())
     } catch (err) {
       if (err instanceof Error) {
