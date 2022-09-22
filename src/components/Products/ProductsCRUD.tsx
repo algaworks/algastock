@@ -29,11 +29,14 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
   async function fetchData() {
     try {
       console.log('started')
+      // @ts-ignore
       await dispatch(getProducts())
       Swal.fire('Uhu!', 'Fetch done', 'success')
       console.log('done')
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
