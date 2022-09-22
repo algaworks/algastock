@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css';
 import HomeView from '../../views/HomeView';
 import NotFoundView from '../../views/NotFoundView';
@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={HomeView} />
-          <Route component={NotFoundView}/>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
