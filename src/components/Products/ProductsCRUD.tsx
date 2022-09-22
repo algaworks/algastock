@@ -27,6 +27,7 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>(undefined)
 
   async function fetchData() {
+    // @ts-ignore
     dispatch(getProducts())
   }
 
