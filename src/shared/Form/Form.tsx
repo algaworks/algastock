@@ -4,6 +4,7 @@ import './Form.scss'
 declare interface FormProps {
   title?: string
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
+  children: JSX.Element | JSX.Element[]
 }
 
 const Form: React.FC<FormProps> = (props) => {

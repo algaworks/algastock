@@ -25,9 +25,12 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
 
   async function fetchData() {
     try {
+       // @ts-ignore
       await dispatch(ProductsAction.getProducts())
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
@@ -39,7 +42,9 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
     try {
       dispatch(ProductsAction.insertNewProduct(product))
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
@@ -48,7 +53,9 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
       await dispatch(ProductsAction.updateProduct(newProduct))
       setUpdatingProduct(undefined)
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
@@ -57,7 +64,9 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
       await dispatch(ProductsAction.deleteProduct(id))
       Swal.fire('Uhul!', 'Product successfully deleted', 'success')
     } catch (err) {
-      Swal.fire('Oops!', err.message, 'error')
+      if (err instanceof Error) {
+        Swal.fire('Oops!', err.message, 'error')
+      }
     }
   }
 
