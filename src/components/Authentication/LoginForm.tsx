@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react'
 import Form from '../../shared/Form'
 import Input from '../../shared/Input'
