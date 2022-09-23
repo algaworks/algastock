@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux'
-import { Redirect } from 'react-router-dom'
+import { redirect as redirectPage } from 'react-router-dom'
 
 type Role = 'admin' | 'customer' | undefined
 
@@ -16,7 +16,7 @@ const withPermission =
     return roles.includes(auth.profile?.role)
       ? <Component {...props} />
       : redirect
-        ? <Redirect to={redirect} />
+        ? redirectPage(redirect)
         : null
   }
 
