@@ -107,10 +107,9 @@ const Table: React.FC<TableProps> = (props) => {
           .fill('')
           .map((_, i) => {
             return <NavLink
-              activeClassName="selected"
-              to={`/products?page=${i + 1}`}
-              isActive={() => page === i + 1}
-            >
+              key={i}
+              className={({ isActive }) => page === i + 1 ? "selected" : ""}
+              to={`/products?page=${i + 1}`}>
               { i + 1 }
             </NavLink>
           })

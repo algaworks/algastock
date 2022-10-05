@@ -4,7 +4,7 @@ import { RootState } from '../../redux'
 import { connect, useDispatch } from 'react-redux'
 import { Product } from '../../shared/Table/Table.mockdata'
 import { User } from '../../services/Authentication.service'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { logout } from '../../redux/Authentication/Authentication.actions'
 import Swal from 'sweetalert2'
 
@@ -16,7 +16,7 @@ declare interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = (props) => {
   const dispatch = useDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const isLoggedIn = !!props.profile?._id
 
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   const handleLoginLogout = () => {
     isLoggedIn
       ? askToLogout()
-      : history.push('/login')
+      : navigate('/login')
   }
 
   return <header className="AppHeader">
