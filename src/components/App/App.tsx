@@ -1,5 +1,6 @@
+// @ts-nocheck
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css';
 import ProductsView from '../../views/ProductsView';
 import NotFoundView from '../../views/NotFoundView';
@@ -11,15 +12,15 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            <Redirect to="/products" />
+        <Routes>
+          <Route path="/" index element={<Navigate to="/products" />} />
+          <Route path="/products" element={<ProductsView />}>
+            <Route path=":id" />
           </Route>
-          <Route path="/products/:id?" exact component={ProductsView} />
-          <Route path="/login" exact component={LoginView} />
-          <Route path="/profile" exact component={ProfileView} />
-          <Route component={NotFoundView}/>
-        </Switch>
+          <Route path="/login" element={<LoginView />} />
+          <Route path="/profile" element={<ProfileView />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

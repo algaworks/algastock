@@ -25,15 +25,11 @@ declare interface TableProps {
 
 const Table: React.FC<TableProps> = (props) => {
   const itemsPerPage = props.itemsPerPage || 5
-
   const location = useLocation()
-  
-  const page = parseInt(
-    parse(location.search).page as string
-  ) || 1
-  
+
+  const page = parseInt(parse(location.search).page as string) || 1
   const [organizedData, indexedHeaders] = organizeData(props.data, props.headers)
-  const paginatedData = paginate(organizedData, itemsPerPage, page);
+  const paginatedData = paginate(organizedData, itemsPerPage, page)
   const totalPages = Math.ceil(organizedData.length / itemsPerPage)
   return <>
     <table className="AppTable">
@@ -117,13 +113,11 @@ const Table: React.FC<TableProps> = (props) => {
           .map((_, i) => {
             return <NavLink
               key={i}
-              activeClassName="selected"
+              className={() => page === i + 1 ? "selected" : ""}
               to={{
                 pathname: location.pathname,
                 search: `?page=${i + 1}`
-              }}
-              isActive={() => page === i + 1}
-            >
+              }}>
               { i + 1 }
             </NavLink>
           })
